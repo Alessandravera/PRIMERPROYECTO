@@ -259,3 +259,22 @@ margin-bottom: 1em;
 .enviar_nota {
     color: rgb(38, 32, 78)
 }
+
+.text.nota {
+    height: 150px;
+    background: none;
+    color: white;
+    padding: auto;
+    margin: auto;
+
+}
+
+.form-label {
+
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+
+
+}

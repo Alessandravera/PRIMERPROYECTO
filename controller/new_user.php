@@ -9,9 +9,9 @@ if(!empty($_POST["btnenviar"])) {
       $nota= $_POST ["nota"];
       $fecha= $_POST ["fecha"];
 
-      $sql= $conn->query(query: "insert into personas (id, nombre_apellido, usuario, email, nota, fechanota) values (null, '$nombreyapellido', '$usuario', '$email', '$nota', '$fechanota')");
+      $sql= $conn->query(query: "INSERT into personas (id, nombre_apellido, usuario, email, nota, fechanota) values (null, '$nombreyapellido', '$usuario', '$email', '$nota', '$fecha')");
       if ($sql==1) {
-        echo "<div class= 'alert alert-success'>Enviado</div>" ; 
+       header(header: "../index1.php");
     }
         else {
         echo "<div class= 'alert alert-danger'>Error, intentalo de nuevo</div>";

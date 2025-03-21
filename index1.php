@@ -84,7 +84,9 @@
         <h4 class="enviar_nota">ENVIAME UNA NOTA PUBLICA</h4>
         <?php 
         include "model/conn.php";
-        include "controller/new_user.php"
+        include "controller/new_user.php";
+        include "controller/edit_user.php";
+        include "controller/delete_user.php";
         ?>
         <div class="mb-3">
             <label for="fornombreyapellido" class="form-label">Escribe tu Nombre y Apellido</label>
@@ -108,7 +110,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="forfecha" class="form-label">Fecha Nota</label>
+            <label for="forfecha" class="form-label">Ingresa Fecha Actual</label>
             <input type="text" class="form-control" name="fecha">
         </div>
 
@@ -123,14 +125,15 @@
         <th scope="col">USUARIO</th>
         <th scope="col">EMAIL</th>
         <th scope="col">NOTA</th>
-        <th scope="col">FECHA NOTA</th>
+        <th scope="col">FECHA</th>
       </tr>
     </thead>
     <tbody>
 <?php
 include "model/conn.php";
 $sql = $conn->query(query: " select * from personas");
-while ($datos = $sql->fetch_object()){ ?>
+while ($datos = $sql->fetch_object()){
+     ?>
 
 <tr>
          <th> <?= $datos->ID ?> </th>
@@ -141,7 +144,7 @@ while ($datos = $sql->fetch_object()){ ?>
         <td><?= $datos->fechanota ?></td>
         <td>
             <a href=""  class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
-            <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-pen"></i></a>
+            <a href="controller/edit.php?id=<?= $datos->ID ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen"></i></a>
         </td>
       </tr>
 
