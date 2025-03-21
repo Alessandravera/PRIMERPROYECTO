@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a5601269a3.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" i
+        ntegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
     <title>portafolio</title>
     <link rel="icon" href="icono.ico">
 </head>
@@ -75,6 +78,87 @@
 </div>
 
 
+<h1 class="text-center p-3  coment">COMENTARIOS</h1>
+<div class="container-fluid row">
+    <form class="col-4 p-4" method="POST">
+        <h4 class="enviar_nota">ENVIAME UNA NOTA PUBLICA</h4>
+        <?php 
+        include "model/conn.php";
+        include "controller/new_user.php"
+        ?>
+        <div class="mb-3">
+            <label for="fornombreyapellido" class="form-label">Escribe tu Nombre y Apellido</label>
+            <input type="text" class="form-control"  name="nombreyapellido">
+        </div>
+
+        <div class="mb-3">
+            <label for="foruser" class="form-label">Escribe tu Usuario</label>
+            <input type="texto" class="form-control" name="usuario" >
+        </div>
+
+        <div class="mb-3">
+            <label for="foremail" class="form-label">Escribe tu Email </label>
+            <input type="email" class="form-control" name="email" >
+        </div>
+
+        <div class="mb-3">
+            <label for="fornota" class="form-label">Escribe tu nota</label>
+            
+            <textarea name="nota" placeholder="Por favor, esribe tu mensaje aqui"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="forfecha" class="form-label">Fecha Nota</label>
+            <input type="text" class="form-control" name="fecha">
+        </div>
+
+        <button type="submit" class="btn_enviar"  name="btnenviar" value="ok">ENVIAR</button>
+</form>
+<div class="col-6 p-6">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOMBRE y APELLIDO</th>
+        <th scope="col">USUARIO</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">NOTA</th>
+        <th scope="col">FECHA NOTA</th>
+      </tr>
+    </thead>
+    <tbody>
+<?php
+include "model/conn.php";
+$sql = $conn->query(query: " select * from personas");
+while ($datos = $sql->fetch_object()){ ?>
+
+<tr>
+         <th> <?= $datos->ID ?> </th>
+        <th> <?= $datos->nombre_apellido ?></th>
+        <td><?= $datos->usuario ?></td>
+        <td><?= $datos->email ?></td>
+        <td><?= $datos->nota ?></td>
+        <td><?= $datos->fechanota ?></td>
+        <td>
+            <a href=""  class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+            <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-pen"></i></a>
+        </td>
+      </tr>
+
+      <?php }
+       ?>
+
+    </tbody>
+  </table>
+
+</div>
+
+
+
+</div>
+
+
+
 <footer class="footer">
 <div class="footer-container">
     <h2> Alessandra Vera</h2>
@@ -89,9 +173,6 @@
     </a>
 </div>
 
-
-</footer>
-   
 
 </body>
 </html>
