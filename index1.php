@@ -138,7 +138,7 @@ while ($datos = $sql->fetch_object()){
         <td><?= $datos->nota ?></td>
         <td><?= $datos->fechanota ?></td>
         <td>
-            <a href=""  class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+        <a onclick="return confirm('Deseas borrar este usuario?')" href="index.php?id=<?= $datos->id ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a> 
             <a href="controller/edit.php?id=<?= $datos->ID ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen"></i></a>
         </td>
       </tr>
