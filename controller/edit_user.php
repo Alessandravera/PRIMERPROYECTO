@@ -13,6 +13,7 @@ if (!empty($_POST["btnupdate"])) {
         $sql = $conn->query("update personas set nombre_apellido='$nombreyapellido', usuario='$usuario', email='$email', nota='$nota' where id=$id");
         if ($sql == 1) {
             header("location:index1.php");
+            exit;
         } else {
             echo "<div class= 'alert alert-danger'>Error, intentalo de nuevo</div>";
         }
@@ -20,3 +21,4 @@ if (!empty($_POST["btnupdate"])) {
         echo "<div class= 'alert alert-warning'>Hay casillas vacias, intentelo de nuevo </div>";
     }
 }
+?>

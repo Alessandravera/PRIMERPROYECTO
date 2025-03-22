@@ -11,7 +11,8 @@ if (!empty($_POST["btnenviar"])) {
 
         $sql = $conn->query("INSERT into personas (id, nombre_apellido, usuario, email, nota) values (null, '$nombreyapellido', '$usuario', '$email', '$nota')");
         if ($sql == 1) {
-            header("../index1.php");
+            header("location:index1.php");
+            exit;
         } else {
             echo "<div class= 'alert alert-danger'>Error, intentalo de nuevo</div>";
         }
@@ -19,3 +20,5 @@ if (!empty($_POST["btnenviar"])) {
         echo "<div class= 'alert alert-warning'>Hay casillas vacias, intentelo de nuevo</div>";
     }
 }
+?>
+

@@ -43,8 +43,6 @@ $sql = $conn->query(query: "SELECT * from personas where id=$id");
                 <label for="fornota" class="form-label">Escribe tu nota</label>
                 <textarea class="text.notaedit" value="<?= $datos->nota ?>" placeholder="Por favor, esribe tu mensaje aqui"></textarea>
             </div>
-
-           
         <?php }  ?>
         <div class="col text-center">
             <button type="submit" class="btn btn-primary" name="btnupdate" value="ok">MODIFICAR</button>
