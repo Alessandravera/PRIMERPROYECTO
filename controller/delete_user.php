@@ -1,20 +1,13 @@
-<?php 
+<?php
+if(!empty($_GET["id"])){
+    $id = $_GET["id"];
+    $sql = $conn->query(" delete from personas where id=$id ");
 
-if(!empty($_GET["id"])) {
-
-    $id=$_GET["id"];
-    $sql= $conn->query(query: "DELETE FROM PERSONAS WHERE ID=$id");
-
-    if ($sql==1) {
-
-
-        header(header: "../index1.php");
-    }else {
-        "<div class= 'alert alert-danger'>Error, intentalo de nuevo</div>";
-      
+    if($sql==1){
+        header("location:index.php");
+    }else{
+        echo "<div class='alert alert-danger'>Error al borrar el usuario</div>";
     }
+    
 }
-
-
-
 ?>

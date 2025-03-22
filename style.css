@@ -278,3 +278,13 @@ margin-bottom: 1em;
 
 
 }
+
+.text.notaedit {
+    height: 150px;
+    background: none;
+    color: white;
+    padding: auto;
+    margin: auto;
+
+
+}
